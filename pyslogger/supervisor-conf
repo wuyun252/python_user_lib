@@ -1,0 +1,7 @@
+[program:pyslogger_server]
+numprocs=4
+process_name=pyslogger_server.p%(process_num)s
+command=/usr/local/bin/python3 -mpyslogger.server --interface eth1 --log_name /data/logs/pyslogger_server --tof_key 123 --p_index %(process_num)s --apd_tag 220_15_CriticalLogger
+stopasgroup=true
+redirect_stderr=true
+stdout_logfile=/data/logs/supervisord/pyslogger_server.log
